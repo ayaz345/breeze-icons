@@ -4,6 +4,7 @@ SPDX-License-Identifier: LicenseRef-KDE-Accepted-LGPL
 SPDX-FileCopyrightText: 2020 Noah Davis <noahadvs@gmail.com>
 SPDX-FileCopyrightText: 2020 Niccolò Venerandi <niccolo@venerandi.com>
 """
+
 import sys
 from lxml import etree
 """
@@ -41,6 +42,6 @@ for f in sys.argv[1:]:
             wasEdited = True  # Remember to keep this
     # END section
 
-    print(f + ": " + ("edited" if wasEdited else "ignored"))
+    print(f"{f}: " + ("edited" if wasEdited else "ignored"))
     if wasEdited:
         tree.write(f, encoding="utf-8", xml_declaration=False, method="xml")

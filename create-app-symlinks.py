@@ -5,6 +5,7 @@ SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accept
 SPDX-FileCopyrightText: 2022 Alois Wohlschlager <alois1@gmx-topmail.de>
 """
 
+
 import os
 import shutil
 import sys
@@ -148,4 +149,4 @@ for dirpath, _, filenames in os.walk(os.path.join(srcdir, "apps")):
             base = file[:-4]
             if base in aliases:
                 for alias in aliases[base]:
-                    os.symlink(file, os.path.join(outpath, alias + ".svg"))
+                    os.symlink(file, os.path.join(outpath, f"{alias}.svg"))

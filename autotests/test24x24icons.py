@@ -61,7 +61,11 @@ class Test24x24Icons(unittest.TestCase):
                 gen_filepath = os.path.join(dirpath, f)
 
                 # Filter out files
-                if not (f.endswith('.svg') and '/24' in gen_filepath) or os.path.islink(gen_filepath):
+                if (
+                    not f.endswith('.svg')
+                    or '/24' not in gen_filepath
+                    or os.path.islink(gen_filepath)
+                ):
                     continue
 
                 etree.set_default_parser(etree.XMLParser(remove_blank_text=True))
@@ -89,7 +93,6 @@ class Test24x24Icons(unittest.TestCase):
                     self.assertEqual(res_elem.tag, gen_elem.tag, gen_filepath)
                     for attribute in res_elem.items():
                         self.assertIn(attribute, gen_elem.items(), gen_filepath)
-                pass
 
 
 if __name__ == "__main__":
