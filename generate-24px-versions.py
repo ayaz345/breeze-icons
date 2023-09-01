@@ -155,11 +155,8 @@ def main():
                         skipped_message += "not square or incorrect viewBox\nviewBox=\"" + root.get('viewBox') + "\""
                     elif not width_height_matched_or_none:
                         skipped_message += "not square or incorrect width and height\nwidth=\"" + root.get('width') + "height=\"" + root.get('height') + "\""
-                    elif viewBox_is_none and (width_is_none or height_is_none):
-                        skipped_message += "viewBox and width/height are missing"
                     else:
-                        skipped_message += "You shouldn't be seeing this. Please fix " + os.path.basename(sys.argv[0])
-
+                        skipped_message += "viewBox and width/height are missing"
                     print(filepath.lstrip(INPUT_DIR) + skipped_message)
 
 # END defs
